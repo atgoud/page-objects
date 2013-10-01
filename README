@@ -1,1 +1,4 @@
-This file was created by IntelliJ IDEA 12.1.4 for binding GitHub repository
+  cd /tmp
+  git clone https://github.com/tsweets/page-objects.git
+  cd page-objects/
+  mvn clean test
