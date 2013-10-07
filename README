@@ -2,3 +2,7 @@
   git clone https://github.com/tsweets/page-objects.git
   cd page-objects/
   mvn clean test
+
+  or for a nicely formatted report run this maven cmd instead then open the report in a web browser
+  mvn clean surefire-report:report site
+  open target/site/surefire-report.html    (Open Command is only on the Mac)
