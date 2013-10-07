@@ -1,4 +1,4 @@
-package org.beer30.page.wikipedia;
+package org.beer30.page.wikipedia.pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Nissan Page implemented using pure Page Object pattern (No Helpers)
+ *
  * @author tsweets
  *         Date: 9/30/13
  *         Time: 9:00 PM
@@ -18,10 +20,10 @@ public class NissanPage {
 
 
     public NissanPage(WebDriver webDriver) {
-        log.info("Page  = {}",webDriver.getTitle());
-        log.info("URL   = {}",webDriver.getCurrentUrl());
+        log.info("Page  = {}", webDriver.getTitle());
+        log.info("URL   = {}", webDriver.getCurrentUrl());
         this.webDriver = webDriver;
-        if(!webDriver.getTitle().equals("Nissan Motor Company - Wikipedia, the free encyclopedia")){
+        if (!webDriver.getTitle().equals("Nissan Motor Company - Wikipedia, the free encyclopedia")) {
             throw new IllegalStateException("Requested NissanPage: current page - " + webDriver.getTitle());
         }
 

@@ -1,10 +1,12 @@
-package org.beer30.page.wikipedia;
+package org.beer30.page.wikipedia.pagefactory;
 
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Privacy Policy Page Page Object using Selenium PageFactory
+ *
  * @author tsweets
  *         Date: 9/30/13
  *         Time: 8:35 PM
@@ -14,10 +16,10 @@ public class PrivacyPolicyPage {
     private WebDriver webDriver;
 
     public PrivacyPolicyPage(WebDriver webDriver) {
-        log.info("Page  = {}",webDriver.getTitle());
-        log.info("URL   = {}",webDriver.getCurrentUrl());
+        log.info("Page  = {}", webDriver.getTitle());
+        log.info("URL   = {}", webDriver.getCurrentUrl());
         this.webDriver = webDriver;
-        if(!webDriver.getTitle().equals("Privacy policy - Wikimedia Foundation")){
+        if (!webDriver.getTitle().equals("Privacy policy - Wikimedia Foundation")) {
             throw new IllegalStateException("Requested PrivacyPolicyPage: current page - " + webDriver.getTitle());
         }
     }

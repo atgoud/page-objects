@@ -11,6 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Six step test using the Selenium library to Access Wikipedia and navigate to the Nissan Skyline Page
+ * This is the Brittle Version. This is how many people will start out testing.
+ *
  * @author tsweets
  *         Date: 9/30/13
  *         Time: 7:57 PM
@@ -25,7 +28,7 @@ public class WikipediaBrittleTest {
 
         log.info("Requesting HomePage");
         webDriver.get("http://www.wikipedia.org");
-        Assert.assertEquals("Wikipedia",webDriver.getTitle());
+        Assert.assertEquals("Wikipedia", webDriver.getTitle());
 
         log.info("Requesting Privacy Policy");
         WebElement privacyPolicyLink = webDriver.findElement(By.partialLinkText("Privacy Policy"));
@@ -51,7 +54,7 @@ public class WikipediaBrittleTest {
         nissanListOfCarsLink.click();
         Assert.assertEquals("List of Nissan vehicles - Wikipedia, the free encyclopedia", webDriver.getTitle());
 
-        // Finnaly goto the Nissan Skyline GT-R Page
+        // Finally goto the Nissan Skyline GT-R Page
         log.info("Clicking Skyline GT-R");
         WebElement nissanSkylineLink = webDriver.findElement(By.partialLinkText("Nissan Skyline GT-R"));
         nissanSkylineLink.click();

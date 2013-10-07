@@ -1,23 +1,24 @@
 package org.beer30;
 
-import org.beer30.page.wikipedia.pageobject.*;
+import org.beer30.page.wikipedia.pagefactory.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Six step test using the Selenium library to Access Wikipedia and navigate to the Nissan Skyline Page
- * This is the pure Page Object Version with no helper classes. This pattern can be used with many testing frameworks e.g. Robot Framework
+ * This is the Page Object Version using the PageFactory class . This is the Advanced usage of Selenium WebDriver.
  *
  * @author tsweets
  *         Date: 9/30/13
  *         Time: 8:25 PM
  */
-public class WikipediaPageObjectTest {
-    private static final Logger log = LoggerFactory.getLogger(WikipediaPageObjectTest.class);
+public class WikipediaPageObjectPageFactoryTest {
+    private static final Logger log = LoggerFactory.getLogger(WikipediaPageObjectPageFactoryTest.class);
 
 
     @Test
@@ -26,7 +27,7 @@ public class WikipediaPageObjectTest {
 
         log.info("Requesting HomePage");
         webDriver.get("http://www.wikipedia.org");
-        HomePage homePage = new HomePage(webDriver);
+        HomePage homePage = PageFactory.initElements(webDriver, HomePage.class);
         Assert.assertNotNull(homePage);
 
         log.info("Requesting Privacy Policy");
@@ -36,7 +37,7 @@ public class WikipediaPageObjectTest {
         // If I go back I should be at the home page again
         log.info("Hitting the Back button");
         webDriver.navigate().back();
-        HomePage homePageAfterBack = new HomePage(webDriver);
+        HomePage homePageAfterBack = PageFactory.initElements(webDriver, HomePage.class);
         Assert.assertNotNull(homePageAfterBack);
 
         // Search for Nissan
